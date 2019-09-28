@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+</head>
+
+<body>
+  <div id="list-header">Users:</div>
+  <ul>
+    <li>John</li>
+    <li>Peter</li>
+  </ul>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script>
+    // 1
+    // 1.1
+    alert(document.getElementsByTagName("head")[0].innerHTML);
+    // 1.2
+    document.getElementById("list-header").style.fontWeight = "bold";
+    // 1.3
+    let ul = document.getElementsByTagName("ul")[0];
+    ul.innerHTML = ul.innerHTML.replace("Peter", "Taras");
+    // 1.4
+    document.getElementsByTagName("ul")[0].style.color = "#555";
+
+    // 2
+    // 2.1
+    alert($("head").html())
+    // 2.2
+    $("#list-header").css("font-weight", "bold")
+    // 2.3
+    $("ul").html((index, oldHTML) => {
+      return oldHTML.replace("Peter", "Taras")
+    })
+    // 2.4
+    $("ul").css("color", "#555");
+  </script>
+
+</body>
+
+</html>
