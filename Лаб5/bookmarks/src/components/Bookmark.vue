@@ -7,6 +7,7 @@
       h2 {{ bookmark.name }}
       p {{ bookmark.description }}
       button(@click="toggleEditing") Edit
+      button(@click="removeBookmark") Remove
     .Bookmark__editing(v-if="isEditing")
       form.NewBookmark(@submit="editBookmark")
         label Name
@@ -42,13 +43,17 @@ export default {
     },
     editBookmark(event) {
       event.preventDefault();
-      this.$store.commit("editBookmark", {
+      this.$store.dispatch("editBookmark", {
         id: this.bookmark.id,
         name: this.newName,
         description: this.newDescription,
         link: this.newLink
       });
       this.toggleEditing();
+    },
+    removeBookmark(event) {
+      event.preventDefault();
+      this.$store.dispatch("removeBookmark", this.bookmark.id);
     }
   }
 };

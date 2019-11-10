@@ -22,7 +22,7 @@ export default {
   methods: {
     addBookmark(event) {
       event.preventDefault();
-      this.$store.commit("addBookmark", {
+      this.$store.dispatch("addBookmark", {
         name: this.name,
         description: this.description,
         link: this.link
